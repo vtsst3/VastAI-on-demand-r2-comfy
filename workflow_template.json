@@ -1,0 +1,576 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "solventeclipseVpred_v11.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "チェックポイントを読み込む"
+    }
+  },
+  "20": {
+    "inputs": {
+      "seed": -1
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "47": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "空のSD3潜在画像"
+    }
+  },
+  "68": {
+    "inputs": {
+      "samples": [
+        "83",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEデコード"
+    }
+  },
+  "70": {
+    "inputs": {
+      "samples": [
+        "77",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEデコード"
+    }
+  },
+  "71": {
+    "inputs": {
+      "seed": 6436547747981
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "75": {
+    "inputs": {
+      "latent_ver": "xl",
+      "scale_factor": "1.5",
+      "samples": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "LatentUpscaler",
+    "_meta": {
+      "title": "Latent Upscaler"
+    }
+  },
+  "76": {
+    "inputs": {
+      "text": "low quality, worst quality, looking_at_viewer,1girl, female, loli",
+      "clip": [
+        "180",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIPテキストエンコード（プロンプト）"
+    }
+  },
+  "77": {
+    "inputs": {
+      "seed": [
+        "20",
+        0
+      ],
+      "steps": 25,
+      "cfg": 4.5,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "178",
+        0
+      ],
+      "positive": [
+        "192",
+        0
+      ],
+      "negative": [
+        "193",
+        0
+      ],
+      "latent_image": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Kサンプラー"
+    }
+  },
+  "80": {
+    "inputs": {
+      "text": "1boy, male focus, muscular male, white shirt, frills, sleeves past wrists, black choker,white socks, light brown hair, grey skirt, from below, dynamic angle, forest, hand_on_own_chest, hand_on_own_stomach, wariza, from side, from_behind, looking_away, ",
+      "clip": [
+        "180",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIPテキストエンコード（プロンプト）"
+    }
+  },
+  "83": {
+    "inputs": {
+      "seed": [
+        "71",
+        0
+      ],
+      "steps": 10,
+      "cfg": 3,
+      "sampler_name": "euler_ancestral_cfg_pp",
+      "scheduler": "beta",
+      "denoise": 0.3,
+      "model": [
+        "180",
+        0
+      ],
+      "positive": [
+        "192",
+        0
+      ],
+      "negative": [
+        "193",
+        0
+      ],
+      "latent_image": [
+        "75",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Kサンプラー"
+    }
+  },
+  "159": {
+    "inputs": {
+      "object_to_patch": "diffusion_model",
+      "residual_diff_threshold": 0.2,
+      "start": 0.30000000000000004,
+      "end": 1,
+      "max_consecutive_cache_hits": 5,
+      "model": [
+        "180",
+        0
+      ]
+    },
+    "class_type": "ApplyFBCacheOnModel",
+    "_meta": {
+      "title": "Apply First Block Cache"
+    }
+  },
+  "160": {
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "CLIPを読み込む"
+    }
+  },
+  "161": {
+    "inputs": {
+      "text": [
+        "181",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIPテキストエンコード（プロンプト）"
+    }
+  },
+  "162": {
+    "inputs": {
+      "samples": [
+        "174",
+        0
+      ],
+      "vae": [
+        "163",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEデコード"
+    }
+  },
+  "163": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAEを読み込む"
+    }
+  },
+  "164": {
+    "inputs": {
+      "lora_name": "Qwen-Image-Lightning-4steps-V1.0.safetensors",
+      "strength_model": 1,
+      "model": [
+        "165",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRAローダーモデルのみ"
+    }
+  },
+  "165": {
+    "inputs": {
+      "unet_name": "qwen_image_edit_2509_fp8_e4m3fn.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "拡散モデルを読み込む"
+    }
+  },
+  "166": {
+    "inputs": {
+      "strength": 0.6,
+      "start_percent": 0,
+      "end_percent": 0.9,
+      "positive": [
+        "161",
+        0
+      ],
+      "negative": [
+        "183",
+        0
+      ],
+      "control_net": [
+        "170",
+        0
+      ],
+      "image": [
+        "173",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "ControlNetを適用"
+    }
+  },
+  "167": {
+    "inputs": {
+      "sampling": "v_prediction",
+      "zsnr": true,
+      "model": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingDiscrete",
+    "_meta": {
+      "title": "モデルサンプリング離散"
+    }
+  },
+  "168": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "160",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "169": {
+    "inputs": {
+      "shift": 3.1000000000000005,
+      "model": [
+        "164",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "モデルサンプリングオーラフロー"
+    }
+  },
+  "170": {
+    "inputs": {
+      "type": "auto",
+      "control_net": [
+        "171",
+        0
+      ]
+    },
+    "class_type": "SetUnionControlNetType",
+    "_meta": {
+      "title": "Unionタイプ"
+    }
+  },
+  "171": {
+    "inputs": {
+      "control_net_name": "SDXL/xinsir_promax.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "ControlNetモデルを読み込む"
+    }
+  },
+  "173": {
+    "inputs": {
+      "images": [
+        "162",
+        0
+      ]
+    },
+    "class_type": "Images to RGB",
+    "_meta": {
+      "title": "Images to RGB"
+    }
+  },
+  "174": {
+    "inputs": {
+      "seed": [
+        "20",
+        0
+      ],
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "195",
+        0
+      ],
+      "positive": [
+        "182",
+        0
+      ],
+      "negative": [
+        "168",
+        0
+      ],
+      "latent_image": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Kサンプラー"
+    }
+  },
+  "178": {
+    "inputs": {
+      "b1": 1.1000000000000003,
+      "b2": 1.3000000000000003,
+      "s1": 1.2000000000000002,
+      "s2": 0.7000000000000002,
+      "start_percent": 0.0010000000000000002,
+      "end_percent": 0.5000000000000001,
+      "model": [
+        "159",
+        0
+      ]
+    },
+    "class_type": "FreeU_V2_timestepadd",
+    "_meta": {
+      "title": "FreeU_V2_timestepadd"
+    }
+  },
+  "179": {
+    "inputs": {
+      "lora_name": "n8n/lora_29_1753206263.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "lbw": "1,0,0,0,0,1,1,1,0,1,1,1"
+    },
+    "class_type": "LoraLoaderWeightOnly|cgem156",
+    "_meta": {
+      "title": "LoRA Loader Weight Only 🍌"
+    }
+  },
+  "180": {
+    "inputs": {
+      "lora": [
+        "179",
+        0
+      ],
+      "model": [
+        "167",
+        0
+      ],
+      "clip_optional": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LoraLoaderFromWeight|cgem156",
+    "_meta": {
+      "title": "LoRA Loader From Weight 🍌"
+    }
+  },
+  "181": {
+    "inputs": {
+      "model": "wd-eva02-large-tagger-v3",
+      "threshold": 0.3500000000000001,
+      "character_threshold": 0.85,
+      "replace_underscore": true,
+      "trailing_comma": false,
+      "exclude_tags": "",
+      "image": [
+        "162",
+        0
+      ]
+    },
+    "class_type": "WD14Tagger|pysssss",
+    "_meta": {
+      "title": "WD14 Tagger 🐍"
+    }
+  },
+  "182": {
+    "inputs": {
+      "text": "在霓虹浸染的赛博朋克都市中，一个从摩天大楼边缘垂直俯瞰的极限高角度镜头。一名拥有机械臂的女子，单手拼命地抓着大楼边缘。她的另一只手则向下伸出，紧紧抓住第二个人——一名悬在她下方的年轻男子的手腕。在他们遥远的下方，另一个屋顶上，站着第三个人——身着战术装备的对手。他正举起一把未来风格的手枪，并非瞄准射击，而是一种冷酷而算计的姿态，仿佛在给他们一个选择。垂直的高度差和下方令人眩晕的城市灯火，营造出强烈的眩晕感和绝望感。",
+      "clip": [
+        "160",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "183": {
+    "inputs": {
+      "text": "low quality, worst quality, realistic, ",
+      "clip": [
+        "180",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIPテキストエンコード（プロンプト）"
+    }
+  },
+  "190": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_Final",
+      "images": [
+        "68",
+        0
+      ]
+    },
+    "class_type": "SaveImageWebsocket",
+    "_meta": {
+      "title": "画像を保存(WebSocket通知)"
+    }
+  },
+  "192": {
+    "inputs": {
+      "select": 1,
+      "sel_mode": false,
+      "input1": [
+        "80",
+        0
+      ],
+      "input2": [
+        "166",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch (Any)"
+    }
+  },
+  "193": {
+    "inputs": {
+      "select": 1,
+      "sel_mode": false,
+      "input1": [
+        "76",
+        0
+      ],
+      "input2": [
+        "166",
+        1
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch (Any)"
+    }
+  },
+  "195": {
+    "inputs": {
+      "select": 1,
+      "sel_mode": true,
+      "input1": [
+        "201",
+        0
+      ],
+      "input2": [
+        "169",
+        0
+      ]
+    },
+    "class_type": "ImpactSwitch",
+    "_meta": {
+      "title": "Switch (Any)"
+    }
+  },
+  "201": {
+    "inputs": {
+      "sampling": "v_prediction",
+      "zsnr": true
+    },
+    "class_type": "ModelSamplingDiscrete",
+    "_meta": {
+      "title": "モデルサンプリング離散"
+    }
+  }
+}
